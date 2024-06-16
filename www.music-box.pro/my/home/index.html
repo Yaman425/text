@@ -1,0 +1,54 @@
+<div class="gray-section clearfix">
+    <div class="casette">
+        <img src="/img/casette_cleanup.png" alt="">
+    </div>
+
+    <div style="position: relative; z-index: 5;">
+        <div class="audio-branding">
+            <h2>Мои аудиозаписи</h2>
+            <p><strong>За прослушивание каждого трека Вы получите <span class="brown">0.01 бит</span></strong><br><strong>
+			<a href="#/categories/" class="green">Хотите увеличить свой доход?</a></strong></p>
+        </div>
+        <div class="visible-xs">
+            <div class="banners-block">
+
+            </div>
+            <a href="#/promotion/" class="centered-link">Хотите разместить свою рекламу?</a>
+        </div>
+
+
+        <div class="song-player-block" style="margin-bottom: 0;">
+            <iframe src="/my/pleer/" id="myIdpleerPley">
+
+											</iframe>
+        </div>
+        <div class="hidden-xs">
+            <div class="banners-block">
+
+            </div>
+
+            <a href="#/promotion/" class="centered-link">Хотите разместить свою рекламу?</a> </div>
+    </div>
+</div>
+<script>
+    window.addEventListener("message",
+        function(e) {
+            if (e.origin !== 'https://www.music-box.pro') {
+                return;
+            }
+            if (e.data) {
+                if (e.data == 'end') {
+                    $('#myIdpleerPley').css("height", "210px");
+                } else if (e.data == 'download') {
+                    $.my.downloadTrek();
+                } else if (e.data == 'money') {
+                    $.post("/my/mymoney/", function(response) {
+                        if (response.status == 'ok') {
+                            $(".balance-block .value strong").text(response.money);
+                        }
+                    });
+                }
+            }
+        },
+        false);
+</script>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MUSICBOX Музыкальный портал | www.music-box.pro</title>
+
+
+    <link rel="stylesheet" href="/css/all.css?v=0.0.93" type="text/css" media="all" />
+    <meta content="width=device-width,initial-scale=1, user-scalable=no" name="viewport" />
+
+
+    <script src="/js/all.js?v=1718550134"></script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>
+    <!-- N Y  -->
+
+    <style>
+        .modal.in .modal-dialog {
+            margin-top: 9%;
+        }
+    </style>
+
+
+
+    <style>
+        .logo-block .logo-text .name {
+            letter-spacing: 5px;
+        }
+
+        .logo-block .logo-text .slogan {
+            letter-spacing: 1.4px;
+        }
+
+        #fountainTextG {
+            width: 118px;
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQ4G93Q"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="wrapper push">
+        <div class="inner">
+            <div class="header">
+                <div class="container">
+                    <div class="row">
+
+
+                        <div class="col-md-4 hidden-sm hidden-xs">
+                            <ul class="nav">
+                                <li><a href="/support/">Тех.Поддержка</a></li>
+                                <li><a href="/rules/">Правила</a></li>
+                                <li><a href="/about-us/">О проекте</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-xs-10">
+                            <a href="/" class="logo-block">
+                                <div class="logo">
+                                    <img src="/img/logo.png" alt="">
+                                </div>
+                                <div class="logo-text">
+                                    <div class="name">Music<span>Box</span></div>
+                                    <div class="slogan">Музыкальный портал</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 hidden-sm hidden-xs">
+                            <style>
+                                .blink_text {
+                                    animation: 0.8s blinker linear infinite;
+                                    color: #00f;
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                }
+
+                                .blink_text a {
+                                    color: #f00;
+                                }
+
+                                @keyframes blinker {
+                                    0% {
+                                        opacity: 0.8;
+                                    }
+                                    50% {
+                                        opacity: 0.0;
+                                    }
+                                    100% {
+                                        opacity: 0.8;
+                                    }
+                            </style>
+                            <ul class="nav right">
+                                <li><a target="_blank" href="https://t.me/musicboxproBot">Telegram Bot</a></li>
+                                <li class="highlighted current-menu-item"><a href="/my/">Моя студия</a></li>
+                                <li class="highlighted"><a href="/logout/">Выход</a></li>
+
+                                <li class="highlighted">
+                                    <div class="wpml-ls-item">
+                                        <ul>
+                                            <li tabindex="0" class="wpml-ls-slot-header_bottom_right">
+                                                <a href="javascript:void(0);" class="js-wpml-ls-item-toggle wpml-ls-item">
+												<img src="/images/global.svg" alt="Language" style="width: 20px;">
+												<img src="/images/arrow-down-sign-to-navigate.svg" alt="Language" style="width: 8px;">
+											</a>
+                                                <ul class="wpml-ls-sub-menu language">
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-en wpml-ls-first-item">
+                                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="en" alt="en" data-google-lang="en"><span class="flag-icon flag-icon-gb"></span><span class="wpml-ls-native" lang="en">English</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-es">
+                                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="es" alt="es" data-google-lang="es"><span class="flag-icon flag-icon-es"></span><span class="wpml-ls-native" lang="es">Español</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-es">
+                                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="fr" alt="fr" data-google-lang="fr"><span class="flag-icon flag-icon-fr"></span><span class="wpml-ls-native" lang="fr">français</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-ja">
+                                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="ja" alt="ja" data-google-lang="ja"><span class="flag-icon flag-icon-jp"></span><span class="wpml-ls-native" lang="ja">日本語</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-ar">
+                                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="ar" alt="ar" data-google-lang="ar"><span class="flag-icon flag-icon-eh"></span><span class="wpml-ls-native" lang="ar">العربية</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-ko">
+                                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="ko" alt="ko" data-google-lang="ko"><span class="flag-icon flag-icon-kr"></span><span class="wpml-ls-native" lang="ko">한국어</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-ru">
+                                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="ru" alt="ru" data-google-lang="ru"><span class="flag-icon flag-icon-ru"></span><span class="wpml-ls-native" lang="ru">Русский</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-vi">
+                                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="vi" alt="vi" data-google-lang="vi"><span class="flag-icon flag-icon-vn"></span><span class="wpml-ls-native" lang="vi">Tiếng Việt</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-th wpml-ls-last-item">
+                                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="th" alt="th" data-google-lang="th"><span class="flag-icon flag-icon-th"></span><span class="wpml-ls-native" lang="th">ไทย</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-german">
+                                                        <a class="wpml-ls-link" lang="en" alt="th" data-google-lang="de" href="javascript:void(0);"><span class="flag-icon flag-icon-de"></span><span class="wpml-ls-native" lang="german">Deutsche</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-italian">
+                                                        <a class="wpml-ls-link" lang="en" alt="it" data-google-lang="it" href="javascript:void(0);"><span class="flag-icon flag-icon-it"></span><span class="wpml-ls-native" lang="italian">Italiana</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-serbian">
+                                                        <a class="wpml-ls-link" lang="sr" alt="sr" data-google-lang="sr" href="javascript:void(0);"><span class="flag-icon flag-icon-rs"></span><span class="wpml-ls-native" lang="serbian">српски</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-portuguese">
+                                                        <a class="wpml-ls-link" lang="pt" alt="pt" data-google-lang="pt" href="javascript:void(0);"><span class="flag-icon flag-icon-pt"></span><span class="wpml-ls-native" lang="portuguese">Português</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-bengali">
+                                                        <a class="wpml-ls-link" lang="bn" alt="bn" data-google-lang="bn" href="javascript:void(0);"><span class="flag-icon flag-icon-bn"></span><span class="wpml-ls-native" lang="bengali">বাংলা</span></a>
+                                                    </li>
+                                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-indonesian">
+                                                        <a class="wpml-ls-link" lang="id" alt="id" data-google-lang="id" href="javascript:void(0);"><span class="flag-icon flag-icon-id"></span><span class="wpml-ls-native" lang="indonesian">Bahasa</span></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-2 hidden-md hidden-lg">
+                            <div class="menu-opener">
+                                <img src="/img/menu.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ticker">
+                ДОРОГИЕ МЕЛОМАНЫ! МЫ РАДЫ ПРИВЕТСТВОВАТЬ ВАС НА НАШЕМ МУЗЫКАЛЬНОМ ПОРТАЛЕ! С НАМИ ВЫ МОЖЕТЕ ЗАНИМАТЬСЯ ЛЮБИМЫМ ДЕЛОМ И ПОЛУЧАТЬ ЗА ЭТО РЕАЛЬНЫЕ ДЕНЬГИ! СПАСИБО ЧТО ВЫ С НАМИ! </div>
+            <script>
+                $('.ticker').marquee({
+                    //speed in milliseconds of the marquee
+                    duration: 20000,
+                    //gap in pixels between the tickers
+                    gap: 50,
+                    //time in milliseconds before the marquee will start animating
+                    delayBeforeStart: 100,
+                    //'left' or 'right'
+                    direction: 'left',
+                    //true or false - should the marquee be duplicated to show an effect of continues flow
+                    duplicated: true,
+                    pauseOnHover: true,
+                });
+            </script>
+            <script type="text/javascript" src="/public/js/clipboard.min.js"></script>
+            <script type="text/javascript" src="/public/js/jquery.plugin.min.js"></script>
+            <script type="text/javascript" src="/public/js/jquery.countdown.min.js"></script>
+            <script type="text/javascript" src="/public/js/jquery.countdown-ru.js"></script>
+            <script src="/public/js/jquery.tmpl.js"></script>
+            <script type="text/javascript" src="/js/my.js?v=0.3.45"></script>
+            <div class="action-gategor">
+                <a href="/my/#/categories/">
+                    <p class="bigger green" style="display: none;">До окончания акции осталось <strong class="pink"><span id="countdown"></span></strong></p>
+                </a>
+            </div>
+            <div class="page-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="page-header">
+                            <div class="col-sm-4">
+                                <div class="sound-header">
+                                    <h1>Моя студия <i class="wave"></i></h1>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="balance-block">
+                                    <div class="value"><span>Баланс:</span> <strong>2000000.25</strong> бит</div>
+                                    <div class="balance-btns">
+                                        <a class="btn btn-default btn-green" href="#/input/">Пополнить</a>
+                                        <a class="btn btn-default btn-pink" href="#/output/">Вывести</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content-section clearfix">
+                            <div class="col-sm-4 col-md-3">
+                                <div class="sidebar">
+                                    <div class="user-block">
+                                        <div class="avatar">
+                                            <img src="/img/logo.png" alt="">
+                                        </div>
+                                        <div class="status">
+                                            <span class="note">Ваша категория*</span> Новичок <span class="info" title="10000.75 бит за 1 трек">i</span> </div>
+                                    </div>
+                                    <ul class="user-nav">
+                                        <li><a href="#/"><i class="icon icon-note"></i> Моя студия</a></li>
+                                        <li><span class="actiom-action-categor">Акция</span><a href="#/categories/"><i class="icon icon-bars"></i> Категории</a></li>
+                                        <li><a href="#/account/"><i class="icon icon-user"></i> Мои данные</a></li>
+                                        <li><a href="#/referral/"><i class="icon icon-users"></i> Мои рефералы</a></li>
+                                        <li><a href="#/history/"><i class="icon icon-clock"></i> История активности</a></li>
+                                        <li><a href="#/media/"><i class="icon icon-copyright"></i> Обладателям медиа</a></li>
+                                        <li><a href="#/promotion/"><i class="icon icon-megaphone"></i> Реклама на сайте</a></li>
+                                        <li><a href="#/autoplay/"><i class="icon icon-star"></i> АВТОПЛЕЕР</a></li>
+                                        <li><a href="#/newbie/"><i class="icon icon-newbie"></i> VIP-НОВИЧОК</a></li>
+                                        <li><a href="#/video/"><i class="icon icon-video"></i> Заработок на видео</a></li>
+                                        <li><span class="actiom-action-categor">Подарок</span><a href="#/gift/"><i class="icon icon-gift"></i> Акции и подарки</a></li>
+                                        <li><a href="#/cart/"><i class="icon icon-cart"></i> Магазин рефералов</a></li>
+
+
+
+
+
+
+                                        <li><a href="#/premium/"><i class="icon icon-premium"></i> Premium аккаунт</a></li>
+                                        <li><a href="#/photo/"><i class="icon icon-photo"></i> Заработок на фото</a></li>
+                                        <li><a href="#/bitcoin/"><i class="icon icon-bitcoin"></i> Bitcoin</a></li>
+
+
+                                        <li><a href="#/bestTrack/"><i class="icon icon-bestTrack"></i> Лучший трек дня</a></li>
+                                        <li><span class="actiom-action-categor">БОНУС</span><a href="#/bonus/"><i class="icon icon-bonus"></i> Бонус +</a></li>
+                                        <li><a href="#/rating/"><i class="icon icon-rating"></i> Рейтинг меломанов</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-offset-1">
+                                <div class="main-content clearfix">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                function blink(selector) {
+                    $(selector).fadeOut('slow', function() {
+                        $(this).fadeIn('slow', function() {
+                            //blink(this);
+
+                        });
+                    });
+                }
+
+                $.my.init();
+
+                $(document).ready(function() {});
+            </script>
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="copyright-block">
+                                <p>© 2016-2024 «MUSICBOX»</p>
+                                <p class="slogan" style="letter-spacing: 2.1px;">Музыкальный портал</p>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <ul class="footer-nav">
+
+                                <li><a href="/about-us/">О проекте</a></li>
+                                <li><a href="/promotion/">Реклама на сайте</a></li>
+                                <li><a href="/privacy-policy/">Соглашение об участии</a></li>
+
+                                <li><a href="/rules/">Правила</a></li>
+                                <li><a href="/media/">Обладателям медиа</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <ul class="payment-list" style="max-width: 1100px;">
+                            <li>
+                                <!--LiveInternet counter--><a href="https://www.liveinternet.ru/click" target="_blank"><img id="licnt8EA9" width="88" height="31" style="border:0"
+title="LiveInternet"
+src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+alt=""/></a>
+                                <script>
+                                    (function(d, s) {
+                                        d.getElementById("licnt8EA9").src =
+                                            "https://counter.yadro.ru/hit?t57.6;r" + escape(d.referrer) +
+                                            ((typeof(s) == "undefined") ? "" : ";s" + s.width + "*" + s.height + "*" +
+                                                (s.colorDepth ? s.colorDepth : s.pixelDepth)) + ";u" + escape(d.URL) +
+                                            ";h" + escape(d.title.substring(0, 150)) + ";" + Math.random()
+                                    })
+                                    (document, screen)
+                                </script>
+                                <!--/LiveInternet-->
+                                <li><a rel="nofollow" href="https://www.music-box.pro/my/#/input/" target="_blank"><img src="/img/pay-systems/pngwing.com.png" alt="" style="height: 38px;"></a></li>
+                                <li><a href="https://freekassa.ru" target="_blank" rel="noopener noreferrer"><img src="https://cdn.freekassa.ru/banners/small-red-1.png" title="Прием платежей на сайте"></a></li>
+
+                                <li><a rel="nofollow" href="https://payeer.com/" target="_blank"><img  style="height: 31px;" src="/img/payment/photo_2020-12-23_16-20-10.jpg" alt=""></a></li>
+
+                                <li><a rel="nofollow" href="/my/" target="_blank"><img src="/img/b/MB-88.gif" alt=""></a></li>
+
+
+
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="menu" class="panel" role="navigation">
+            <ul class="panel-nav">
+                <li><a class="" target="_blank" href="https://t.me/musicboxproBot">Telegram Bot</a></li>
+                <li><a href="/support/">Тех.Поддержка</a></li>
+                <li><a href="/rules/">Правила</a></li>
+                <li><a href="/about-us/">О проекте</a></li>
+                <li><a href="/promotion/">Реклама на сайте</a></li>
+                <li class="highlighted current-menu-item"><a href="/my/">Моя студия</a></li>
+                <li class="highlighted"><a href="/logout/">Выход</a></li>
+                <li class="highlighted">
+                    <div class="wpml-ls-item">
+                        <ul>
+                            <li tabindex="0" class="wpml-ls-slot-header_bottom_right" style="list-style: none;">
+                                <a href="javascript:void(0);" class="js-wpml-ls-item-toggle wpml-ls-item">
+								<img src="/images/global.svg" alt="Language" style="width: 20px;">
+								<img src="/images/arrow-down-sign-to-navigate.svg" alt="Language" style="width: 8px;">
+							</a>
+                                <ul class="wpml-ls-sub-menu language" style="left: 20px;">
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-en wpml-ls-first-item">
+                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="en" alt="en" data-google-lang="en"><span class="wpml-ls-native" lang="en">English</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-es">
+                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="es" alt="es" data-google-lang="es"><span class="wpml-ls-native" lang="es">Español</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-es">
+                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="fr" alt="fr" data-google-lang="fr"><span class="wpml-ls-native" lang="fr">français</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-ja">
+                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="ja" alt="ja" data-google-lang="ja"><span class="wpml-ls-native" lang="ja">日本語</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-ar">
+                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="ar" alt="ar" data-google-lang="ar"><span class="wpml-ls-native" lang="ar">العربية</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-ko">
+                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="ko" alt="ko" data-google-lang="ko"><span class="wpml-ls-native" lang="ko">한국어</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-ru">
+                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="ru" alt="ru" data-google-lang="ru"><span class="wpml-ls-native" lang="ru">Русский</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-vi">
+                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="vi" alt="vi" data-google-lang="vi"><span class="wpml-ls-native" lang="vi">Tiếng Việt</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-th wpml-ls-last-item">
+                                        <a href="javascript:void(0);" class="wpml-ls-link" lang="th" alt="th" data-google-lang="th"><span class="wpml-ls-native" lang="th">ไทย</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-german">
+                                        <a class="wpml-ls-link" lang="en" alt="th" data-google-lang="de" href="javascript:void(0);"><span class="wpml-ls-native" lang="german">Deutsche</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-italian">
+                                        <a class="wpml-ls-link" lang="en" alt="it" data-google-lang="it" href="javascript:void(0);"><span class="wpml-ls-native" lang="italian">Italiana</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-serbian">
+                                        <a class="wpml-ls-link" lang="sr" alt="sr" data-google-lang="sr" href="javascript:void(0);"><span class="wpml-ls-native" lang="serbian">српски</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-portuguese">
+                                        <a class="wpml-ls-link" lang="pt" alt="pt" data-google-lang="pt" href="javascript:void(0);"><span class="wpml-ls-native" lang="portuguese">Português</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-bengali">
+                                        <a class="wpml-ls-link" lang="bn" alt="bn" data-google-lang="bn" href="javascript:void(0);"><span class="wpml-ls-native" lang="bengali">বাংলা</span></a>
+                                    </li>
+                                    <li class="wpml-ls-slot-header_bottom_right wpml-ls-item wpml-ls-item-indonesian">
+                                        <a class="wpml-ls-link" lang="id" alt="id" data-google-lang="id" href="javascript:void(0);"><span class="wpml-ls-native" lang="indonesian">Bahasa</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+        </ul>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal_example">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-close" data-dismiss="modal"></div>
+                <div class="modal-body">
+                    <div class="caption"></div>
+                    <div class="modal-text">
+                        <p></p>
+                    </div>
+                    <div class="modal-footer-end">
+                        <div class="btn btn-default btn-big btn-green" data-dismiss="modal">Окей</div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <div class="modal fade" role="dialog" id="modal_messages">
+        <div class="modal-dialog" role="document" style="margin-top: 10%;">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="caption" style="color: red;text-align: center;"></div>
+                    <div class="modal-text" style="margin-bottom: 0px;">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    </div>
+
+    <!-- /.cursor -->
+    <div id="mousemove-logo">
+        <img src="/img/logo.png" alt="">
+        <div class="cssload">
+            <div id="fountainTextG">
+                <div id="fountainTextG_1" class="fountainTextG">M</div>
+                <div id="fountainTextG_2" class="fountainTextG">U</div>
+                <div id="fountainTextG_3" class="fountainTextG">S</div>
+                <div id="fountainTextG_4" class="fountainTextG">I</div>
+                <div id="fountainTextG_5" class="fountainTextG">C</div>
+                <div id="fountainTextG_6" class="fountainTextG">B</div>
+                <div id="fountainTextG_7" class="fountainTextG">O</div>
+                <div id="fountainTextG_8" class="fountainTextG">X</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(53115892, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script> <noscript><div><img src="https://mc.yandex.ru/watch/53115892" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <div id="google_translate_element"></div>
+</body>
+
+</html>

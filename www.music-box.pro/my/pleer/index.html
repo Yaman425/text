@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no">
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lddqu4aAAAAAM60BrxS4pPCgzxiFAOMQkT8bfVs"></script>
+    <link rel="stylesheet" href="/public/css/pleer.css?v=0.0.7">
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/style.css?v=0.0.98">
+    <style>
+        .grecaptcha-logo {
+            display: none
+        }
+
+        .grecaptcha-badge {
+            display: none !important
+        }
+    </style>
+</head>
+
+<body style="background: #f4f4f4;overflow:  hidden;" id="pleer">
+
+    <div class="songs-available">
+        <div class="item"><span>25</span> доступно в сутки</div>
+        <div class="item"><span id="remained">0</span> прослушано</div>
+        <div class="item"><span id="listened">25</span> осталось</div>
+    </div>
+    <p class="pink" style="text-align: center;font-weight: 500;display: none;"> Ваш лимит треков на сегодня прослушан! <br>Приходите пожалуйста завтра! <br><br></p>
+    <div class="song-player-block" style="margin-bottom: 0;">
+        <div class="player-main">
+            <div class="controls">
+                <div class="sound-control">
+                    <div class="sound-quiet"></div>
+                    <div class="sound-bar" style="width: 73px;">
+                        <div class="sound-bar-width"></div>
+                    </div>
+
+                    <div class="sound-loud"></div>
+                </div>
+                <div class="play-pause" style="margin-right: 27px;">
+                    <div class="play" onclick="play()"></div>
+                    <div class="pause" onclick="pause()"></div>
+                    <div class="spinner">
+                        <div class="rect1"></div>
+                        <div class="rect2"></div>
+                        <div class="rect3"></div>
+                        <div class="rect4"></div>
+                        <div class="rect5"></div>
+                    </div>
+                </div>
+                <div class="next-song"></div>
+                <div class="rate grayscale-gray">
+                    <div class="like" data-status="like"></div>
+                    <div class="dislike" data-status="dislike"></div>
+                </div>
+            </div>
+            <div class="duration-line">
+                <div class="duration-current">00:00:00</div>
+                <div class="duration-bar">
+                    <div class="duration-bar-current" style="width: 0%;"></div>
+                </div>
+                <div class="duration-total">00:00:00</div>
+            </div>
+        </div>
+        <div class="track-info">
+            <div class="track-name"></div>
+            <div class="track-download">
+
+                <a href="javascript:void(0)" id=download></a>
+
+            </div>
+        </div>
+    </div>
+
+    <audio controls id="mySound" class="my_audio" style="display: none;">
+        <source src="https://music-box.pro/public/audio/20171202/5a22489058866.mp3" type="audio/mpeg">
+                <source src="https://music-box.pro/public/audio/20171202/5a22489058866.ogg" type="audio/ogg">
+                Ваш браузер не поддерживает тег аудио!
+</audio>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal_example">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-close" data-dismiss="modal"></div>
+                <div class="modal-body" style="padding: 10px;">
+                    <div class="modal-text"></div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <script>
+        var re_captcha_token = "";
+        var sound;
+        var sound_status = "";
+
+        function play() {
+            if (sound_status == "") {
+                $.post("/my/audioRequest/", {
+                    'param': 'play'
+                }, function(response) {
+                    if (response.status == "ok") {} else if (response.status == "play") {
+                        modalStart("Аудиозаписи для заработка", "Вы начали прослушивать трек в другом окне, дождитесь пожалуйста завершения");
+                    } else if (response.status == "dont") {
+                        modalStart("Аудиозаписи для заработка", "У Вас лимит треков на сегодня исчерпан, приходите пожалуйста завтра");
+                    }
+                }, "json");
+            }
+            sound_status = "play";
+            sound.play();
+            $(".play").hide();
+            $(".pause").show()
+        }
+
+        function pause() {
+            sound_status = "pause";
+            sound.pause();
+            $(".play").show();
+            $(".pause").hide();
+        }
+
+        function secToTime(sec) {
+            dt = new Date();
+            dt.setTime(sec * 1000);
+            s = dt.getUTCSeconds();
+            if (s < 10) {
+                s = "0" + s;
+            }
+            h = dt.getUTCMinutes();
+            if (h < 10) {
+                h = "0" + h;
+            }
+            return "00:" + h + ":" + s;
+        }
+
+
+        window.onload = function() {
+
+            sound = document.getElementById("mySound");
+            $(".play").show();
+            $(".spinner").hide();
+
+
+            sound.addEventListener('timeupdate', function() {
+                var tim = (sound.duration); // продолжительность
+                $(".duration-total").html(secToTime(Math.floor(tim)));
+                var duration = sound.currentTime;
+                $(".duration-current").html(secToTime(Math.floor(duration)));
+                w = (100 / tim) * duration + 2;
+                $(".duration-bar-current").css('width', w + '%');
+            });
+            sound.addEventListener('ended', function() {
+                sound_status = "end";
+                //$(".duration-current").html('');
+                $(".player-main .play").show();
+                $(".player-main .pause").hide();
+
+                $(".player-main .play").addClass('opacity');
+                $(".player-main .rate").removeClass('grayscale-gray');
+            });
+            /*sound.addEventListener('error' , function() {
+        alert('Ошибка загрузки файла');
+    }, false);*/
+        };
+        var volume = 1;
+        $(document).on("click", ".sound-quiet", function(event) {
+            if (volume < 0.3) return;
+            volume = volume - 0.1;
+            w = volume * 100;
+            w = w + "%";
+            $(".sound-bar-width").width(w);
+            sound.volume = volume;
+        })
+        $(document).on("click", ".sound-loud", function(event) {
+            if (volume > 0.9) {
+                volume = 1;
+                $(".sound-bar-width").width("100%");
+            } else {
+                volume = volume + 0.1;
+                w = volume * 100;
+                w = w + "%";
+                $(".sound-bar-width").width(w);
+            }
+            sound.volume = volume;
+        })
+        $(document).on("click", ".player-main .rate .like", function(event) {
+            if (sound_status == "end") {
+                sound = "";
+                $.post("/my/captcha/", {
+                    "rete": "like"
+                }, function(response) {
+                    if (response) {
+                        $(".player-main .next-song").addClass('acc');
+                        $(".player-main .rate").addClass('grayscale-gray');
+                        $(".songs-available #listened").text(response.listened);
+                        $(".songs-available #remained").text(response.remained);
+                        status_play = "captcha";
+                        modalStart("Аудиозаписи для заработка", response);
+                    } else {
+                        grecaptcha.execute('6Lddqu4aAAAAAM60BrxS4pPCgzxiFAOMQkT8bfVs', {
+                            action: 'validate_captcha'
+                        }).then(function(token) {
+                            re_captcha_token = token;
+                            $.post("/my/audioRequest/", {
+                                "param": "end",
+                                "rete": "like",
+                                "g-recaptcha-response": re_captcha_token
+                            }, function(response) {
+                                if (response.status == "ok") {
+                                    endPlay();
+                                    //location.reload();
+                                } else if ((response.status == "error") && (response.data == "captcha")) {
+                                    $(form).find("input[name='norobot']").css("border-color", "red");
+                                }
+                            }, "json");
+                        });
+                    }
+                });
+            }
+
+        });
+        $(document).on("click", ".player-main .rate .dislike", function(event) {
+            if (sound_status == "end") {
+                sound = "";
+                $.post("/my/captcha/", {
+                    "rete": "dislike"
+                }, function(response) {
+                    if (response) {
+                        $(".player-main .next-song").addClass('acc');
+                        $(".player-main .rate").addClass('grayscale-gray');
+                        $(".songs-available #listened").text(response.listened);
+                        $(".songs-available #remained").text(response.remained);
+                        status_play = "captcha";
+                        modalStart("Аудиозаписи для заработка", response);
+                    } else {
+                        grecaptcha.execute('6Lddqu4aAAAAAM60BrxS4pPCgzxiFAOMQkT8bfVs', {
+                            action: 'validate_captcha'
+                        }).then(function(token) {
+                            re_captcha_token = token;
+                            $.post("/my/audioRequest/", {
+                                "param": "end",
+                                "rete": "dislike",
+                                "g-recaptcha-response": re_captcha_token
+                            }, function(response) {
+                                if (response.status == "ok") {
+                                    endPlay();
+                                    //location.reload();
+                                } else if ((response.status == "error") && (response.data == "captcha")) {
+                                    $(form).find("input[name='norobot']").css("border-color", "red");
+                                }
+                            }, "json");
+                        });
+
+                    }
+                });
+            }
+        });
+
+        $(document).on("submit", "form#captcha_my", function(event) {
+            var form = $(this);
+            if (status_play == "captcha") {
+                $.post("/my/audioRequest/", $(this).serialize(), function(response) {
+                    if (response.status == "ok") {
+                        endPlay();
+                        //location.reload();
+                    } else if ((response.status == "error") && (response.data == "captcha")) {
+                        $(form).find("input[name='norobot']").css("border-color", "red");
+                    }
+                }, "json");
+            }
+            return false;
+        });
+        $(document).on("click", ".player-main .next-song", function(event) {
+            if (status_play == "next") {
+                console.log(77);
+                location.reload();
+            }
+        });
+        $(document).on("click", ".player-main .next-song.acc", function(event) {
+            console.log(88);
+            location.reload();
+        });
+        $(document).on("click", ".track-download a", function(event) {
+            $.post("/my/audioRequest/", {
+                "param": "download"
+            }, function(response) {
+
+            }, "json");
+        });
+        // end
+        function endPlay() {
+            status_play = "next";
+            $('#modal_example').modal('hide');
+            $(".player-main .next-song").addClass('acc');
+            $(".player-main .rate").addClass('grayscale-gray');
+            $(".player-main .player-main").addClass('opacity');
+
+            top.postMessage('money', 'https://www.music-box.pro/my/');
+            if ($("#listened").text() > 0) {
+                $("#listened").text(Number($("#listened").text()) - 1);
+                $("#remained").text(Number($("#remained").text()) + 1);
+            }
+        }
+
+        // modal start
+        function modalStart(title, data) {
+            $('#modal_example').modal('show');
+            $("#modal_example .modal-text").html('<p>' + data + '</p>');
+        }
+
+        //top.postMessage('0.00', 'https://www.music-box.pro/my/');
+        $(document).on("click", ".track-download a", function(event) {
+            urltreck = encodeURIComponent("https://music-box.pro/public/audio/20171202/5a22489058866.mp3");
+            document.cookie = "download=" + urltreck + ";" + (24 * 60 * 60 * 1000) + ";path=/";
+            top.postMessage('download', 'https://www.music-box.pro/my/');
+
+        });
+    </script>
+</body>
+
+</html>
